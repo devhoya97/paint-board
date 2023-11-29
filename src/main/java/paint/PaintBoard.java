@@ -1,5 +1,7 @@
 package paint;
 
+import java.util.List;
+
 public class PaintBoard {
     private static final int MAX_X = 80;
     private static final int MAX_Y = 30;
@@ -15,6 +17,8 @@ public class PaintBoard {
     public PaintBoard() {
         initializeToEmpty();
         fillVertex();
+        fillXBoundary();
+        fillYBoundary();
     }
 
     private void initializeToEmpty() {
@@ -30,6 +34,24 @@ public class PaintBoard {
         board[MAX_Y - 1][0] = VERTEX;
         board[0][MAX_X -1] = VERTEX;
         board[MAX_Y - 1][MAX_X -1] = VERTEX;
+    }
+
+    private void fillXBoundary() {
+        List<Integer> yIndexesOfXBoundary = List.of(0, MAX_Y - 1);
+        for (int yIndex : yIndexesOfXBoundary) {
+            for (int xIndex = 1; xIndex < MAX_X - 1; xIndex++) {
+                board[yIndex][xIndex] = '-';
+            }
+        }
+    }
+
+    private void fillYBoundary() {
+        List<Integer> xIndexesOfXBoundary = List.of(0, MAX_X - 1);
+        for (int xIndex : xIndexesOfXBoundary) {
+            for (int yIndex = 1; yIndex < MAX_Y - 1; yIndex++) {
+                board[yIndex][xIndex] = '|';
+            }
+        }
     }
 
     public char[][] getBoard() {
