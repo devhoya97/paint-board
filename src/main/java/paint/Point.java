@@ -1,5 +1,7 @@
 package paint;
 
+import java.util.List;
+
 public class Point {
     public static final int MIN_X = 1;
     public static final int MAX_X = 78;

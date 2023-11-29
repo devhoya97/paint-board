@@ -40,7 +40,7 @@ public class PaintBoard {
         List<Integer> yIndexesOfXBoundary = List.of(0, MAX_Y - 1);
         for (int yIndex : yIndexesOfXBoundary) {
             for (int xIndex = 1; xIndex < MAX_X - 1; xIndex++) {
-                board[yIndex][xIndex] = '-';
+                board[yIndex][xIndex] = BOUNDARY_X;
             }
         }
     }
@@ -49,7 +49,15 @@ public class PaintBoard {
         List<Integer> xIndexesOfXBoundary = List.of(0, MAX_X - 1);
         for (int xIndex : xIndexesOfXBoundary) {
             for (int yIndex = 1; yIndex < MAX_Y - 1; yIndex++) {
-                board[yIndex][xIndex] = '|';
+                board[yIndex][xIndex] = BOUNDARY_Y;
+            }
+        }
+    }
+
+    public void paintRectangle(Point point1, Point point2) {
+        for (int yIndex = point1.getY(); yIndex <= point2.getY(); yIndex++) {
+            for (int xIndex = point1.getX(); xIndex <= point2.getX(); xIndex++) {
+                board[yIndex][xIndex] = FIGURE;
             }
         }
     }
