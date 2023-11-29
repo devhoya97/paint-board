@@ -10,18 +10,26 @@ public class PaintBoard {
     private static final char EMPTY = ' ';
 
 
-    private final char[][] board = new char[MAX_X][MAX_Y];
+    private final char[][] board = new char[MAX_Y][MAX_X];
 
     public PaintBoard() {
         initializeToEmpty();
+        fillVertex();
     }
 
     private void initializeToEmpty() {
-        for (int xIndex = 0; xIndex < MAX_X; xIndex++) {
-            for (int yIndex = 0; yIndex < MAX_Y; yIndex++) {
-                board[xIndex][yIndex] = EMPTY;
+        for (int yIndex = 0; yIndex < MAX_Y; yIndex++) {
+            for (int xIndex = 0; xIndex < MAX_X; xIndex++) {
+                board[yIndex][xIndex] = EMPTY;
             }
         }
+    }
+
+    private void fillVertex() {
+        board[0][0] = VERTEX;
+        board[MAX_Y - 1][0] = VERTEX;
+        board[0][MAX_X -1] = VERTEX;
+        board[MAX_Y - 1][MAX_X -1] = VERTEX;
     }
 
     public char[][] getBoard() {
