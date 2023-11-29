@@ -1,10 +1,10 @@
 package paint;
 
 public class Point {
-    private static final int MIN_X = 1;
-    private static final int MAX_X = 78;
-    private static final int MIN_Y = 1;
-    private static final int MAX_Y = 28;
+    public static final int MIN_X = 1;
+    public static final int MAX_X = 78;
+    public static final int MIN_Y = 1;
+    public static final int MAX_Y = 28;
     private final int x;
     private final int y;
 
