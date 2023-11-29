@@ -1,2 +1,4 @@
-package paint;public class Application {
+package paint;
+
+public class Application {
 }

@@ -1,2 +1,4 @@
-package paint.view;public class OutputView {
+package paint.view;
+
+public class OutputView {
 }
