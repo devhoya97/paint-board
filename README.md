@@ -67,8 +67,8 @@
       - [ ] 사각형의 조건에 부합하지 않은 경우 발생한 IllegalArgumentException을 처리한다.
   - [ ] 좌표를 입력받아 사각형을 만든다.
       - [ ] [예외처리]사각형의 크기가 78*28을 초과하면 IllegalArgumentException을 발생시킨다.
-      - [ ] [예외처리]x좌표가 1미만 또는 78초과인 경우 IllegalArgumentException을 발생시킨다.
-      - [ ] [예외처리]y좌표가 1미만 또는 28초과인 경우 IllegalArgumentException을 발생시킨다.
+      - [x] [예외처리]x좌표가 1미만 또는 78초과인 경우 IllegalArgumentException을 발생시킨다.
+      - [x] [예외처리]y좌표가 1미만 또는 28초과인 경우 IllegalArgumentException을 발생시킨다.
       - [ ] 80*30의 테두리를 그린다.
         - [ ] 공백으로만 이루어진 이차원 배열을 생성한다.
         - [ ] 꼭짓점을 `+`로 채운다.
