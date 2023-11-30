@@ -15,17 +15,65 @@ public class Circle {
     }
 
     private void validate(Point origin, int radius) {
-        if (((origin.getX() - radius) >= MIN_X)
-                || ((origin.getX() + radius) <= MAX_X)
-                || ((origin.getY() - radius) >= MIN_Y)
-                || ((origin.getY() + radius) <= MAX_Y)) {
+        if (((origin.getX() - radius) < MIN_X)
+                || ((origin.getX() + radius) > MAX_X)
+                || ((origin.getY() - radius) < MIN_Y)
+                || ((origin.getY() + radius) > MAX_Y)) {
             throw new IllegalArgumentException();
         }
     }
 
-    public boolean isInCircle(int x, int y) {
-        double distanceSquare = Math.pow(x - origin.getX(), 2) + Math.pow(y - origin.getY(), 2);
-        return Math.pow(radius, 2) >= distanceSquare;
+    public boolean isInUpperLeft(int xIndex, int yIndex) {
+        int originXIndex = origin.getX() - 1;
+        int originYIndex = origin.getY() - 1;
+
+        if ((xIndex > originXIndex) || (yIndex > originYIndex)) {
+            return false;
+        }
+
+        return isInRange(xIndex, yIndex, originXIndex, originYIndex);
+    }
+
+    public boolean isInUpperRight(int xIndex, int yIndex) {
+        int originXIndex = origin.getX() - 1;
+        int originYIndex = origin.getY();
+
+        if ((xIndex < originXIndex) || (yIndex > originYIndex)) {
+            return false;
+        }
+
+        return isInRange(xIndex, yIndex, originXIndex, originYIndex);
+    }
+
+    public boolean isInLowerLeft(int xIndex, int yIndex) {
+        int originXIndex = origin.getX() - 1;
+        int originYIndex = origin.getY();
+
+        if ((xIndex > originXIndex) || (yIndex < originYIndex)) {
+            return false;
+        }
+
+        return isInRange(xIndex, yIndex, originXIndex, originYIndex);
+    }
+
+    public boolean isInLowerRight(int xIndex, int yIndex) {
+        int originXIndex = origin.getX();
+        int originYIndex = origin.getY();
+
+        if ((xIndex < originXIndex) || (yIndex < originYIndex)) {
+            return false;
+        }
+
+        return isInRange(xIndex, yIndex, originXIndex, originYIndex);
+    }
+
+    private boolean isInRange(int xIndex, int yIndex, int originXIndex, int originYIndex) {
+        int range = radius - 1;
+        int additionalRange = (radius / 2) - 1;
+
+        int distance = Math.abs(originXIndex - xIndex) + Math.abs(originYIndex - yIndex);
+
+        return distance <= (range + additionalRange);
     }
 
     public Point getOrigin() {
