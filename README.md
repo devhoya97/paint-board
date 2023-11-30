@@ -63,8 +63,8 @@
 - 로직
   - [ ] InputView에서 받은 좌표를 저장한다.
     - [ ] 잘못된 입력이 있을 경우 다시 입력받는다.
-      - [ ] InputView에서 IllegalArgumentException을 던진 경우를 처리한다.
-      - [ ] 사각형의 조건에 부합하지 않은 경우 발생한 IllegalArgumentException을 처리한다.
+      - [x] InputView에서 IllegalArgumentException을 던진 경우를 처리한다.
+      - [x] 사각형의 조건에 부합하지 않은 경우 발생한 IllegalArgumentException을 처리한다.
   - [x] 그림판을 만든다.
     - [x] 80*30의 테두리를 그린다.
       - [x] 공백으로만 이루어진 이차원 배열을 생성한다.
