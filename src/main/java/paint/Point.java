@@ -11,6 +11,7 @@ public class Point {
     private final int y;
 
     public Point(int x, int y) {
+        validate(x, y);
         this.x = x;
         this.y = y;
     }
