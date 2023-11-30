@@ -64,22 +64,22 @@ x,y,r을 입력하세요. (예: 10, 20, 5)
 ### 구현할 기능 목록
 
 - InputView
-  - [ ] 사용자로부터 (x,y,r)을 입력받는다.
-    - [ ] 콤마 다음에는 공백이 하나 있어도 무관하다.
-    - [ ] [예외처리]첫 번째 숫자 앞에 공백이 있으면 IllegalArgumentException을 발생시킨다.
-    - [ ] [예외처리]`숫자,숫자,숫자`형식으로 입력하지 않은 경우 IllegalArgumentException을 발생시킨다.
+  - [x] 사용자로부터 (x,y,r)을 입력받는다.
+    - [x] 콤마 다음에는 공백이 하나 있어도 무관하다.
+    - [x] [예외처리]첫 번째 숫자 앞에 공백이 있으면 IllegalArgumentException을 발생시킨다.
+    - [x] [예외처리]`숫자,숫자,숫자`형식으로 입력하지 않은 경우 IllegalArgumentException을 발생시킨다.
 - 로직
-  - [ ] InputView에서 받은 좌표를 저장한다.
-    - [ ] 잘못된 입력이 있을 경우 다시 입력받는다.
-      - [ ] InputView에서 IllegalArgumentException을 던진 경우를 처리한다.
-      - [ ] 원의 조건에 부합하지 않은 경우 발생한 IllegalArgumentException을 처리한다.
+  - [x] InputView에서 받은 좌표를 저장한다.
+    - [x] 잘못된 입력이 있을 경우 다시 입력받는다.
+      - [x] InputView에서 IllegalArgumentException을 던진 경우를 처리한다.
+      - [x] 원의 조건에 부합하지 않은 경우 발생한 IllegalArgumentException을 처리한다.
   - [x] 그림판을 만든다.
     - [x] 80*30의 테두리를 그린다.
       - [x] 공백으로만 이루어진 이차원 배열을 생성한다.
       - [x] 꼭짓점을 `+`로 채운다.
       - [x] 가로 테두리를 `-`로 채운다.
       - [x] 세로 테두리를 `|`로 채운다.
-  - [ ] (x,y,r)을 받아 원을 만든다.
+  - [x] (x,y,r)을 받아 원을 만든다.
     - [x] [예외처리]x좌표가 1미만 또는 78초과인 경우 IllegalArgumentException을 발생시킨다.
     - [x] [예외처리]y좌표가 1미만 또는 28초과인 경우 IllegalArgumentException을 발생시킨다.
     - [x] [예외처리]x좌표에 반지름을 뺀 값이 1미만일 경우 IllegalArgumentException을 발생시킨다.
