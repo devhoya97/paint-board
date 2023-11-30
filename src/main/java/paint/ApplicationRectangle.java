@@ -4,7 +4,7 @@ import java.util.List;
 import paint.view.InputView;
 import paint.view.OutputView;
 
-public class Application {
+public class ApplicationRectangle {
     public static void main(String[] args) {
         OutputView.printStart();
 
