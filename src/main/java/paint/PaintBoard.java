@@ -54,14 +54,6 @@ public class PaintBoard {
         }
     }
 
-    public void paintRectangle(Point point1, Point point2) {
-        for (int yIndex = point1.getY(); yIndex <= point2.getY(); yIndex++) {
-            for (int xIndex = point1.getX(); xIndex <= point2.getX(); xIndex++) {
-                board[yIndex][xIndex] = FIGURE;
-            }
-        }
-    }
-
     public void paintShape(Shape shape, char figure) {
         shape.paint(board, figure);
     }

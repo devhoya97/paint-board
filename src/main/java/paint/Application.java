@@ -4,7 +4,7 @@ import java.util.List;
 import paint.view.InputView;
 import paint.view.OutputView;
 
-public class ApplicationCircle {
+public class Application {
     public static void main(String[] args) {
         OutputView.printStart();
 
@@ -15,6 +15,11 @@ public class ApplicationCircle {
         OutputView.printPaintBoard(paintBoard.getBoard());
 
         OutputView.printEnd();
+
+        Rectangle rectangle = new Rectangle(new Point(10, 10), new Point(15, 15));
+        paintBoard.paintShape(rectangle, 'x');
+
+        OutputView.printPaintBoard(paintBoard.getBoard());
     }
 
     private static Circle getValidCircle() {
