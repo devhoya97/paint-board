@@ -62,56 +62,8 @@ public class PaintBoard {
         }
     }
 
-    public void paintCircle(Circle circle) {
-        Point origin = circle.getOrigin();
-        int radius = circle.getRadius();
-
-        Point upperLeft = new Point((origin.getX() - circle.getRadius()), (origin.getY() - circle.getRadius()));
-
-        paintCircleFirstQuadrant(new Point(upperLeft.getX() + radius, upperLeft.getY()), circle);
-        paintCircleSecondQuadrant(upperLeft, circle);
-        paintCircleThirdQuadrant(new Point(upperLeft.getX(), upperLeft.getY() + radius), circle);
-        paintCircleFourthQuadrant(new Point(upperLeft.getX() + radius, upperLeft.getY() + radius), circle);
-    }
-
-    private void paintCircleFirstQuadrant(Point upperLeft, Circle circle) {
-        for (int yIndex = upperLeft.getY(); yIndex < upperLeft.getY() + circle.getRadius(); yIndex++) {
-            for (int xIndex = upperLeft.getX(); xIndex < upperLeft.getX() + circle.getRadius(); xIndex++) {
-                if (circle.isInFirstQuadrant(xIndex, yIndex)) {
-                    board[yIndex][xIndex] = FIGURE;
-                }
-            }
-        }
-    }
-
-    private void paintCircleSecondQuadrant(Point upperLeft, Circle circle) {
-        for (int yIndex = upperLeft.getY(); yIndex < upperLeft.getY() + circle.getRadius(); yIndex++) {
-            for (int xIndex = upperLeft.getX(); xIndex < upperLeft.getX() + circle.getRadius(); xIndex++) {
-                if (circle.isInSecondQuadrant(xIndex, yIndex)) {
-                    board[yIndex][xIndex] = FIGURE;
-                }
-            }
-        }
-    }
-
-    private void paintCircleThirdQuadrant(Point upperLeft, Circle circle) {
-        for (int yIndex = upperLeft.getY(); yIndex < upperLeft.getY() + circle.getRadius(); yIndex++) {
-            for (int xIndex = upperLeft.getX(); xIndex < upperLeft.getX() + circle.getRadius(); xIndex++) {
-                if (circle.isInThirdQuadrant(xIndex, yIndex)) {
-                    board[yIndex][xIndex] = FIGURE;
-                }
-            }
-        }
-    }
-
-    private void paintCircleFourthQuadrant(Point upperLeft, Circle circle) {
-        for (int yIndex = upperLeft.getY(); yIndex < upperLeft.getY() + circle.getRadius(); yIndex++) {
-            for (int xIndex = upperLeft.getX(); xIndex < upperLeft.getX() + circle.getRadius(); xIndex++) {
-                if (circle.isInFourthQuadrant(xIndex, yIndex)) {
-                    board[yIndex][xIndex] = FIGURE;
-                }
-            }
-        }
+    public void paintShape(Shape shape, char figure) {
+        shape.paint(board, figure);
     }
 
     public char[][] getBoard() {

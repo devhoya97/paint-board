@@ -1,6 +1,6 @@
 package paint;
 
-public class Circle {
+public class Circle implements Shape {
     public static final int MIN_X = 1;
     public static final int MAX_X = 79;
     public static final int MIN_Y = 1;
@@ -23,48 +23,54 @@ public class Circle {
         }
     }
 
-    public boolean isInFirstQuadrant(int xIndex, int yIndex) {
-        int originXIndex = origin.getX();
-        int originYIndex = origin.getY() - 1;
+    @Override
+    public void paint(char[][] board, char figure) {
+        Point upperLeft = new Point((origin.getX() - radius), (origin.getY() - radius));
 
-        if ((xIndex < originXIndex) || (yIndex > originYIndex)) {
-            return false;
-        }
-
-        return isInRange(xIndex, yIndex, originXIndex, originYIndex);
+        paintCircleFirstQuadrant(board, figure, new Point(upperLeft.getX() + radius, upperLeft.getY()));
+        paintCircleSecondQuadrant(board, figure, upperLeft);
+        paintCircleThirdQuadrant(board, figure, new Point(upperLeft.getX(), upperLeft.getY() + radius));
+        paintCircleFourthQuadrant(board, figure, new Point(upperLeft.getX() + radius, upperLeft.getY() + radius));
     }
 
-    public boolean isInSecondQuadrant(int xIndex, int yIndex) {
-        int originXIndex = origin.getX() - 1;
-        int originYIndex = origin.getY() - 1;
-
-        if ((xIndex > originXIndex) || (yIndex > originYIndex)) {
-            return false;
+    private void paintCircleFirstQuadrant(char[][] board, char figure, Point upperLeft) {
+        for (int yIndex = upperLeft.getY(); yIndex < upperLeft.getY() + radius; yIndex++) {
+            for (int xIndex = upperLeft.getX(); xIndex < upperLeft.getX() + radius; xIndex++) {
+                if (isInRange(xIndex, yIndex, origin.getX(), origin.getY() - 1)) {
+                    board[yIndex][xIndex] = figure;
+                }
+            }
         }
-
-        return isInRange(xIndex, yIndex, originXIndex, originYIndex);
     }
 
-    public boolean isInThirdQuadrant(int xIndex, int yIndex) {
-        int originXIndex = origin.getX() - 1;
-        int originYIndex = origin.getY();
-
-        if ((xIndex > originXIndex) || (yIndex < originYIndex)) {
-            return false;
+    private void paintCircleSecondQuadrant(char[][] board, char figure, Point upperLeft) {
+        for (int yIndex = upperLeft.getY(); yIndex < upperLeft.getY() + radius; yIndex++) {
+            for (int xIndex = upperLeft.getX(); xIndex < upperLeft.getX() + radius; xIndex++) {
+                if (isInRange(xIndex, yIndex, origin.getX() - 1, origin.getY() - 1)) {
+                    board[yIndex][xIndex] = figure;
+                }
+            }
         }
-
-        return isInRange(xIndex, yIndex, originXIndex, originYIndex);
     }
 
-    public boolean isInFourthQuadrant(int xIndex, int yIndex) {
-        int originXIndex = origin.getX();
-        int originYIndex = origin.getY();
-
-        if ((xIndex < originXIndex) || (yIndex < originYIndex)) {
-            return false;
+    private void paintCircleThirdQuadrant(char[][] board, char figure, Point upperLeft) {
+        for (int yIndex = upperLeft.getY(); yIndex < upperLeft.getY() + radius; yIndex++) {
+            for (int xIndex = upperLeft.getX(); xIndex < upperLeft.getX() + radius; xIndex++) {
+                if (isInRange(xIndex, yIndex, origin.getX() - 1, origin.getY())) {
+                    board[yIndex][xIndex] = figure;
+                }
+            }
         }
+    }
 
-        return isInRange(xIndex, yIndex, originXIndex, originYIndex);
+    private void paintCircleFourthQuadrant(char[][] board, char figure, Point upperLeft) {
+        for (int yIndex = upperLeft.getY(); yIndex < upperLeft.getY() + radius; yIndex++) {
+            for (int xIndex = upperLeft.getX(); xIndex < upperLeft.getX() + radius; xIndex++) {
+                if (isInRange(xIndex, yIndex, origin.getX(), origin.getY())) {
+                    board[yIndex][xIndex] = figure;
+                }
+            }
+        }
     }
 
     private boolean isInRange(int xIndex, int yIndex, int originXIndex, int originYIndex) {
@@ -74,13 +80,5 @@ public class Circle {
         int distance = Math.abs(originXIndex - xIndex) + Math.abs(originYIndex - yIndex);
 
         return distance <= (range + additionalRange);
-    }
-
-    public Point getOrigin() {
-        return origin;
-    }
-
-    public int getRadius() {
-        return radius;
     }
 }

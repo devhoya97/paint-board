@@ -11,7 +11,7 @@ public class ApplicationCircle {
         Circle circle = getValidCircle();
 
         PaintBoard paintBoard = new PaintBoard();
-        paintBoard.paintCircle(circle);
+        paintBoard.paintShape(circle, '*');
         OutputView.printPaintBoard(paintBoard.getBoard());
 
         OutputView.printEnd();
