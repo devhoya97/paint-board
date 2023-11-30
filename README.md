@@ -82,10 +82,10 @@ x,y,r을 입력하세요. (예: 10, 20, 5)
   - [ ] (x,y,r)을 받아 원을 만든다.
     - [x] [예외처리]x좌표가 1미만 또는 78초과인 경우 IllegalArgumentException을 발생시킨다.
     - [x] [예외처리]y좌표가 1미만 또는 28초과인 경우 IllegalArgumentException을 발생시킨다.
-    - [ ] [예외처리]x좌표에 반지름을 뺀 값이 1미만일 경우 IllegalArgumentException을 발생시킨다.
-    - [ ] [예외처리]x좌표에 반지름을 더한 값이 78초과일 경우 IllegalArgumentException을 발생시킨다.
-    - [ ] [예외처리]y좌표에 반지름을 뺀 값이 1미만일 경우 IllegalArgumentException을 발생시킨다.
-    - [ ] [예외처리]y좌표에 반지름을 더한 값이 28초과일 경우 IllegalArgumentException을 발생시킨다.
+    - [x] [예외처리]x좌표에 반지름을 뺀 값이 1미만일 경우 IllegalArgumentException을 발생시킨다.
+    - [x] [예외처리]x좌표에 반지름을 더한 값이 78초과일 경우 IllegalArgumentException을 발생시킨다.
+    - [x] [예외처리]y좌표에 반지름을 뺀 값이 1미만일 경우 IllegalArgumentException을 발생시킨다.
+    - [x] [예외처리]y좌표에 반지름을 더한 값이 28초과일 경우 IllegalArgumentException을 발생시킨다.
     - [ ] 원의 경계와 안쪽에 *을 채워 넣는다.
       - [ ] 원의 중심과 특정 점 사이의 거리를 계산한다.
       - [ ] 계산한 거리 값이 원의 반지름보다 작으면 *을 채워 넣는다.
