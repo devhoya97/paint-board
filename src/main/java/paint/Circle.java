@@ -20,4 +20,17 @@ public class Circle {
             throw new IllegalArgumentException();
         }
     }
+
+    public boolean isInCircle(int x, int y) {
+        double distanceSquare = Math.pow(x - origin.getX(), 2) + Math.pow(y - origin.getY(), 2);
+        return Math.pow(radius, 2) >= distanceSquare;
+    }
+
+    public Point getOrigin() {
+        return origin;
+    }
+
+    public int getRadius() {
+        return radius;
+    }
 }
