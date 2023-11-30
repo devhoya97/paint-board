@@ -6,10 +6,13 @@ import paint.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        PaintBoard paintBoard = new PaintBoard();
+        OutputView.printStart();
 
+        PaintBoard paintBoard = new PaintBoard();
         paintBoard.paintRectangle(getValidFirstPoint(), getValidSecondPoint());
+
         OutputView.printPaintBoard(paintBoard.getBoard());
+        OutputView.printEnd();
     }
 
     private static Point getValidFirstPoint() {
