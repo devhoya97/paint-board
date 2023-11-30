@@ -3,7 +3,7 @@ package paint.view;
 public class OutputView {
 
     public static void printStart() {
-        System.out.println("사각형 그리기 프로그램");
+        System.out.println("원 그리기 프로그램");
     }
 
     public static void printPaintBoard(char[][] board) {

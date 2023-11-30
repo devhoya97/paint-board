@@ -23,7 +23,18 @@ public class Circle {
         }
     }
 
-    public boolean isInUpperLeft(int xIndex, int yIndex) {
+    public boolean isInFirstQuadrant(int xIndex, int yIndex) {
+        int originXIndex = origin.getX();
+        int originYIndex = origin.getY() - 1;
+
+        if ((xIndex < originXIndex) || (yIndex > originYIndex)) {
+            return false;
+        }
+
+        return isInRange(xIndex, yIndex, originXIndex, originYIndex);
+    }
+
+    public boolean isInSecondQuadrant(int xIndex, int yIndex) {
         int originXIndex = origin.getX() - 1;
         int originYIndex = origin.getY() - 1;
 
@@ -34,18 +45,7 @@ public class Circle {
         return isInRange(xIndex, yIndex, originXIndex, originYIndex);
     }
 
-    public boolean isInUpperRight(int xIndex, int yIndex) {
-        int originXIndex = origin.getX() - 1;
-        int originYIndex = origin.getY();
-
-        if ((xIndex < originXIndex) || (yIndex > originYIndex)) {
-            return false;
-        }
-
-        return isInRange(xIndex, yIndex, originXIndex, originYIndex);
-    }
-
-    public boolean isInLowerLeft(int xIndex, int yIndex) {
+    public boolean isInThirdQuadrant(int xIndex, int yIndex) {
         int originXIndex = origin.getX() - 1;
         int originYIndex = origin.getY();
 
@@ -56,7 +56,7 @@ public class Circle {
         return isInRange(xIndex, yIndex, originXIndex, originYIndex);
     }
 
-    public boolean isInLowerRight(int xIndex, int yIndex) {
+    public boolean isInFourthQuadrant(int xIndex, int yIndex) {
         int originXIndex = origin.getX();
         int originYIndex = origin.getY();
 
