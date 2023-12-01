@@ -22,6 +22,8 @@ public class Application {
         OutputView.printPaintBoard(paintBoard.getBoard());
     }
 
+    // 올바른 명령어 받기부터 구현
+
     private static Circle getValidCircle() {
         while (true) {
             try {

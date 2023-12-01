@@ -5,8 +5,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
-    private static final String DELIMITER = ",";
-    private static Scanner console = new Scanner(System.in);
+    private static final String DELIMITER = " ";
+    private static final Scanner console = new Scanner(System.in);
+
+    public static List<String> getCommand() {
+        System.out.println("명령을 입력하세요(help: 도움말)");
+
+        String input = console.nextLine();
+        String[] commandAndNumbers = input.split(DELIMITER, 2);
+
+        return List.of(commandAndNumbers[0], commandAndNumbers[1]);
+    }
 
     public static List<Integer> getOriginAndRadius() {
         System.out.println("x,y,r을 입력하세요. (예: 10, 20, 5)");
